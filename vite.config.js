@@ -6,3 +6,6 @@ export default defineConfig({
   plugins: [vue()],
   publicPath: '/primer-blog/'
 })
+module.exports = {
+    publicPath: '/primer-blog/'
+}
