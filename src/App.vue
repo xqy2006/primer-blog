@@ -11,24 +11,6 @@
                     <span>xqy2006</span>
                 </a>
             </div>
-            <div class="Header-item">
-                <input type="search" class="form-control Header-input" />
-            </div>
-            <div class="Header-item">
-                <a href="front-end" class="Header-link">前端</a>
-            </div>
-            <div class="Header-item">
-                <a href="python" class="Header-link">Python</a>
-            </div>
-            <div class="Header-item">
-                <a href="ai" class="Header-link">AI项目部署</a>
-            </div>
-            <div class="Header-item">
-                <a href="else" class="Header-link">其他</a>
-            </div>
-            <div class="Header-item">
-                <a href="about" class="Header-link">About</a>
-            </div>
         </div>
         <div class="Layout" style="margin-top: 30px;margin-inline-start: 50px;margin-inline-end: 50px;">
             <div class="Layout-main">
@@ -50,8 +32,9 @@
 
             <div class="Layout-sidebar">
                 <nav class="menu" aria-label="Person settings">
+                    <span class="menu-heading" id="menu-heading">目录</span>
                     <a v-for="o in get_mdlist()" :key="o" class="menu-item" :href="`#`+o.name" :aria-selected="aria(o.name)">
-                        {{o.name}}</a>
+                        {{o.name}}<span class="Label mr-1 Label--accent" style="margin-inline-start: 5px;">{{o.tag}}</span></a>
                 </nav>
             </div>
         </div>
@@ -82,39 +65,44 @@ export default {
             mdlist: [],
         }
     },
+    created() {
+        window.onhashchange = function (event) {
+            location.reload()
+        }
+    },
     methods: {
         get_mdlist() {
             const md = new MarkdownIt();
             const markdown =
-                import.meta.glob('./assets/*.md', {
+                import.meta.glob('./assets/**/*.md', {
                     as: 'raw',
                     eager: true
                 })
             const mdlist = []
             for (const path in markdown) {
-                
+
                 let mds = markdown[path]
-                console.log(markdown)
+                //console.log(markdown)
                 //console.log(path.substring(path.lastIndexOf('/')+1), mds)
                 mdlist.push({
                     name: path.substring(path.lastIndexOf('/') + 1),
-                    content: md.render(mds)
+                    content: md.render(mds),
+                    tag: path.slice(0,path.lastIndexOf('/')).substring(path.slice(0,path.lastIndexOf('/')).lastIndexOf('/') + 1)
                 })
                 console.log(mdlist)
             }
             //console.log(test);
             //console.log(indexmd)
-            console.log(mdlist.length)
+            //console.log(mdlist.length)
             //this.result = md.render(indexmd);
             //this.filename = 'xqy2006_blog.md'
             return mdlist
         },
-        aria(name){
-            if ("#"+name==decodeURI(location.hash)){
+        aria(name) {
+            if ("#" + name == decodeURI(location.hash)) {
                 return 'true'
-            }
-            else{
-                console.log("#"+name+'\n'+location.hash)
+            } else {
+                //console.log("#" + name + '\n' + location.hash)
                 return 'false'
             }
         }
