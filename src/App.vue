@@ -31,8 +31,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="Box-footer">
-                        © 2022 xqy2006
+                    <div class="Box-footer d-flex flex-items-center">
+                        <h3 class="Box-title overflow-hidden flex-auto">
+                            © 2022 xqy2006
+                        </h3>
+                        <button class="btn btn-primary btn-sm" @click="gotop()">回到顶部</button>
                     </div>
                 </div>
             </div>
@@ -133,6 +136,10 @@ export default {
         },
         goback() {
             location.hash = '#xqy2006_blog.md'
+        },
+        gotop() {
+            document.body.scrollTop = 0
+            document.documentElement.scrollTop = 0
         }
     },
 }

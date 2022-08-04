@@ -572,4 +572,4 @@ def Reader(DIGITS,path = './work/data'):
 
 #### 4. 成果
 
-https://www.github.com/xqy2006/music_generation
+[https://www.github.com/xqy2006/music_generation](https://www.github.com/xqy2006/music_generation)
