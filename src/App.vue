@@ -30,53 +30,37 @@
                 <a href="about" class="Header-link">About</a>
             </div>
         </div>
-
-        <form style="margin-inline-start: 50px;margin-inline-end: 50px;">
-            <div class="form-group">
-                <div class="form-group-header">
-                    <label for="example-text">Example Text</label>
-                </div>
-                <div class="form-group-body">
-                    <input class="form-control" type="text" value="Example Value" id="example-text" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group-header">
-                    <label for="example-select">Example Select</label>
-                </div>
-                <div class="form-group-body">
-                    <select class="form-select" id="example-select">
-                        <option>Choose an option</option>
-                        <option>Git</option>
-                        <option>Subversion</option>
-                        <option>Social Coding</option>
-                        <option>Beets</option>
-                        <option>Bears</option>
-                        <option>Battlestar Galactica</option>
-                    </select>
+        <div class="Layout" style="margin-top: 30px;margin-inline-start: 50px;margin-inline-end: 50px;">
+            <div class="Layout-main">
+                <div class="Box">
+                    <div class="Box-header">
+                        {{get_mdlist()[0].name}}
+                    </div>
+                    <div class="Box-body">
+                        <div class="markdown-body">
+                            <div v-html="get_mdlist()[0].content">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Box-footer">
+                        © 2022 xqy2006
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="form-group-header">
-                    <label for="example-textarea">Example Textarea</label>
-                </div>
-                <div class="form-group-body">
-                    <textarea class="form-control" id="example-textarea"></textarea>
-                </div>
+            <div class="Layout-sidebar">
+                <nav class="menu" aria-label="Person settings">
+                    <a v-for="o in get_mdlist()" :key="o" class="menu-item" :href="`#`+o.name" :aria-selected="aria(o.name)">
+                        {{o.name}}</a>
+                </nav>
             </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn">Cancel</button>
-            </div>
-        </form>
+        </div>
 
     </div>
 </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@primer/css/index.scss";
 
 html,
@@ -86,3 +70,54 @@ body {
     margin: 0;
 }
 </style>
+
+<script>
+import MarkdownIt from 'markdown-it';
+import indexmd from './assets/xqy2006_blog.md?raw'
+export default {
+    data() {
+        return {
+            result: '',
+            filename: '',
+            mdlist: [],
+        }
+    },
+    methods: {
+        get_mdlist() {
+            const md = new MarkdownIt();
+            const markdown =
+                import.meta.glob('./assets/*.md', {
+                    as: 'raw',
+                    eager: true
+                })
+            const mdlist = []
+            for (const path in markdown) {
+                
+                let mds = markdown[path]
+                console.log(markdown)
+                //console.log(path.substring(path.lastIndexOf('/')+1), mds)
+                mdlist.push({
+                    name: path.substring(path.lastIndexOf('/') + 1),
+                    content: md.render(mds)
+                })
+                console.log(mdlist)
+            }
+            //console.log(test);
+            //console.log(indexmd)
+            console.log(mdlist.length)
+            //this.result = md.render(indexmd);
+            //this.filename = 'xqy2006_blog.md'
+            return mdlist
+        },
+        aria(name){
+            if ("#"+name==decodeURI(location.hash)){
+                return 'true'
+            }
+            else{
+                console.log("#"+name+'\n'+location.hash)
+                return 'false'
+            }
+        }
+    },
+}
+</script>
