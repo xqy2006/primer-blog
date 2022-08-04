@@ -55,18 +55,20 @@
 
 <style lang="scss">
 @import "@primer/css/index.scss";
-
+@import "highlight.js/styles/github.css";
 html,
 body {
     width: 100%;
     height: 100%;
     margin: 0;
 }
+
 </style>
 
 <script>
 import MarkdownIt from 'markdown-it';
 //import indexmd from './assets/xqy2006_blog.md?raw'
+import hljs from 'highlight.js/lib/common';
 export default {
     data() {
         return {
@@ -85,7 +87,19 @@ export default {
     },
     methods: {
         get_mdlist() {
-            const md = new MarkdownIt();
+            const md = MarkdownIt({
+                highlight: function (str, lang) {
+                    if (lang && hljs.getLanguage(lang)) {
+                        try {
+                            return hljs.highlight(str, {
+                                language: lang
+                            }).value;
+                        } catch (__) {}
+                    }
+
+                    return ''; // use external default escaping
+                }
+            });
             const markdown =
                 import.meta.glob('./assets/**/*.md', {
                     as: 'raw',
