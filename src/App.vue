@@ -124,6 +124,7 @@ export default {
                         content: mdlist[0].content,
                         tag: mdlist[0].tag,
                     }
+            }
             for (let item of mdlist) {
                 //console.log(item.name, decodeURI(location.hash))
                 if ("#" + item.name == decodeURI(location.hash)) {
