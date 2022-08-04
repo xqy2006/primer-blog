@@ -14,13 +14,20 @@
         </div>
         <div class="Layout" style="margin-top: 30px;margin-inline-start: 50px;margin-inline-end: 50px;">
             <div class="Layout-main">
-                <div class="Box">
-                    <div class="Box-header">
-                        {{get_mdlist()[0].name}}
+                <div class="Box Box--blue">
+                    <div class="Box-header d-flex flex-items-center">
+                        <h3 class="Box-title overflow-hidden flex-auto">
+                            {{context(get_mdlist()).name}}
+                            <span class="Label mr-1 Label--accent" style="margin-inline-start: 5px;">{{context(get_mdlist()).tag}}</span>
+                        </h3>
+
+                        <button class="btn btn-primary btn-sm" @click="goback()">
+                            返回首页
+                        </button>
                     </div>
                     <div class="Box-body">
                         <div class="markdown-body">
-                            <div v-html="get_mdlist()[0].content">
+                            <div v-html="context(get_mdlist()).content">
                             </div>
                         </div>
                     </div>
@@ -56,7 +63,7 @@ body {
 
 <script>
 import MarkdownIt from 'markdown-it';
-import indexmd from './assets/xqy2006_blog.md?raw'
+//import indexmd from './assets/xqy2006_blog.md?raw'
 export default {
     data() {
         return {
@@ -87,7 +94,7 @@ export default {
                 mdlist.push({
                     name: path.substring(path.lastIndexOf('/') + 1),
                     content: md.render(mds),
-                    tag: path.slice(0,path.lastIndexOf('/')).substring(path.slice(0,path.lastIndexOf('/')).lastIndexOf('/') + 1)
+                    tag: path.slice(0, path.lastIndexOf('/')).substring(path.slice(0, path.lastIndexOf('/')).lastIndexOf('/') + 1).substring(2)
                 })
                 console.log(mdlist)
             }
@@ -105,6 +112,27 @@ export default {
                 //console.log("#" + name + '\n' + location.hash)
                 return 'false'
             }
+        },
+        context(mdlist) {
+            console.log(mdlist)
+            for (let item of mdlist) {
+                console.log(item.name, decodeURI(location.hash))
+                if ("#" + item.name == decodeURI(location.hash)) {
+                    return {
+                        name: item.name,
+                        content: item.content,
+                        tag: item.tag,
+                    }
+                }
+            }
+            return {
+                name: "error",
+                content: "error",
+                tag: "error",
+            }
+        },
+        goback() {
+            location.hash = '#xqy2006_blog.md'
         }
     },
 }
