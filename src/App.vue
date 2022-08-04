@@ -12,7 +12,7 @@
                 </a>
             </div>
         </div>
-        <div class="Layout" style="margin-top: 30px;margin-inline-start: 50px;margin-inline-end: 50px;">
+        <div class="Layout" :style="{'margin-top': '30px','margin-inline-start': isMobileDevice(),'margin-inline-end': isMobileDevice(),}">
             <div class="Layout-main">
                 <div class="Box Box--blue">
                     <div class="Box-header d-flex flex-items-center">
@@ -79,8 +79,8 @@ export default {
         window.onhashchange = function (event) {
             location.reload()
         }
-        if (location.hash=='') {
-            location.hash='#xqy2006_blog.md'
+        if (location.hash == '') {
+            location.hash = '#xqy2006_blog.md'
         }
     },
     methods: {
@@ -102,7 +102,7 @@ export default {
                     content: md.render(mds),
                     tag: path.slice(0, path.lastIndexOf('/')).substring(path.slice(0, path.lastIndexOf('/')).lastIndexOf('/') + 1).substring(2)
                 })
-                console.log(mdlist)
+                //console.log(mdlist)
             }
             //console.log(test);
             //console.log(indexmd)
@@ -143,7 +143,19 @@ export default {
         gotop() {
             document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
-        }
+        },
+        isMobileDevice() { //判断当前设备是否为移动端
+            const ua = navigator.userAgent.toLowerCase();
+            const t1 = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+                ua
+            );
+            const t2 = !ua.match("iphone") && navigator.maxTouchPoints > 1;
+            if (t1 || t2) {
+                return "5px"
+            } else {
+                return "50px"
+            }
+        },
     },
 }
 </script>
