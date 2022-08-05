@@ -35,7 +35,7 @@
 
   主要代码将放在这里，方便上不去GitHub的朋友观看：
 
-  ```vue
+  ```html
   <template>
   <div style="height: 100%;width: 100%;">
       <div data-color-mode="light" data-light-theme="light" class="p-0">
