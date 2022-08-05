@@ -3,31 +3,46 @@
 
 代码已开源：[https://github.com/xqy2006/xqy2006.github.io/](https://github.com/xqy2006/xqy2006.github.io/)
 
-- 食用方法
+### 技术栈
 
-  1. 安装
+主要技术：
 
-     ① 将源码克隆到本地
+- Vue 3
+- Vite 3
+- Primer CSS
+- scss
+- Prettier 美化代码
 
-     ② 安装包管理器npm
+依赖库：
 
-     ③ 在源码根目录运行`npm install -i`安装依赖项
+- markdown-it 解析Markdown文件
+- highlight.js 代码高亮
 
-     ④ 运行`npm run dev`在本地查看效果
+### 食用方法
 
-     ⑤ 确认运行正常后运行`npm run build`构建(Vercel平台可跳过这步，直接上传源码)
+1. 安装
 
-     ⑥ 将`dist`目录生成的静态文件上传至静态网页托管平台(GitHub Pages、Vercel......)
+   ① 将源码克隆到本地
 
-  2. 写作
+   ② 安装包管理器npm
 
-     ① 新建标签：
+   ③ 在源码根目录运行`npm install -i`安装依赖项
 
-     在源码的`./src/assets`目录下新建文件夹，文件夹的名称为`x-标签名称`，其中x的大小代表了标签的排列顺序，越小在列表的排序更靠前
+   ④ 运行`npm run dev`在本地查看效果
 
-     ② 新建博文
+   ⑤ 确认运行正常后运行`npm run build`构建(Vercel平台可跳过这步，直接上传源码)
 
-     博文使用Markdown语法，网页将只会读取文件后缀名为`.md`的文件，在相应的标签文件夹下放入博文的Markdown文件，文件名为`xx-文章名称`，其中xx的大小代表了标签的排列顺序，越小在列表的排序更靠前
+   ⑥ 将`dist`目录生成的静态文件上传至静态网页托管平台(GitHub Pages、Vercel......)
+
+2. 写作
+
+   ① 新建标签：
+
+   在源码的`./src/assets`目录下新建文件夹，文件夹的名称为`x-标签名称`，其中x的大小代表了标签的排列顺序，越小在列表的排序更靠前
+
+   ② 新建博文
+
+   博文使用Markdown语法，网页将只会读取文件后缀名为`.md`的文件，在相应的标签文件夹下放入博文的Markdown文件，文件名为`xx-文章名称`，其中xx的大小代表了标签的排列顺序，越小在列表的排序更靠前
 
 
 
