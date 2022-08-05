@@ -112,7 +112,7 @@ export default {
                 //console.log(markdown)
                 //console.log(path.substring(path.lastIndexOf('/')+1), mds)
                 mdlist.push({
-                    name: path.substring(path.lastIndexOf('/') + 1),
+                    name: path.substring(path.lastIndexOf('/') + 1).substring(3),
                     content: md.render(mds),
                     tag: path.slice(0, path.lastIndexOf('/')).substring(path.slice(0, path.lastIndexOf('/')).lastIndexOf('/') + 1).substring(2)
                 })
