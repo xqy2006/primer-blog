@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@primer/css": "^20.4.1",
+    "@primer/css": "^20.4.4",
     "highlight.js": "^11.6.0",
     "markdown-it": "^13.0.1",
     "scss": "^0.2.4",
