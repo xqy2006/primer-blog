@@ -11,6 +11,18 @@
                     <span>xqy2006</span>
                 </a>
             </div>
+            <div class="Header-item">
+                <a href="music_generation" class="Header-link">音乐生成</a>
+            </div>
+            <div class="Header-item">
+                <a href="xqy-markdown" class="Header-link">Markdown编辑器</a>
+            </div>
+            <div class="Header-item">
+                <a href="identicon" class="Header-link">GitHub头像生成器</a>
+            </div>
+            <div class="Header-item">
+                <a href="draw" class="Header-link">Excalidraw</a>
+            </div>
         </div>
         <div class="Layout" :style="{'margin-top': '30px','margin-inline-start': isMobileDevice(),'margin-inline-end': isMobileDevice(),}">
             <div class="Layout-main">
