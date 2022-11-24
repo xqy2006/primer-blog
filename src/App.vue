@@ -100,6 +100,9 @@ export default {
     methods: {
         get_mdlist() {
             const md = MarkdownIt({
+                html: true,
+                linkify: true,
+                breaks: true,
                 highlight: function (str, lang) {
                     if (lang && hljs.getLanguage(lang)) {
                         try {
