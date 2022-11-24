@@ -54,7 +54,7 @@
 <template>
 <div style="height: 100%;width: 100%;">
     <div data-color-mode="light" data-light-theme="light" class="p-0">
-        <div class="Header" style="margin-top: 0px;margin-bottom: 0px;width: 100%;">
+        <div class="Header" style="margin-top: 0px;margin-bottom: 0px;width: 100%;white-space:nowrap;overflow:auto;">
             <div class="Header-item">
                 <a @click="goback()" class="Header-link f4 d-flex flex-items-center">
                     <!-- <%= octicon "mark-github", class: "mr-2", height: 32 %> -->
@@ -90,7 +90,7 @@
                             \u8FD4\u56DE\u9996\u9875
                         </button>
                     </div>
-                    <div class="Box-body">
+                    <div class="Box-body" style="white-space: normal;">
                         <div class="markdown-body">
                             <div v-html="con">
                             </div>
