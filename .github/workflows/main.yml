@@ -6,9 +6,19 @@ jobs:
     name: Build Vue
     steps:
     - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: xRealNeon/VuePagesAction@1.0.1
+    - name: Setup Node.js 14.x
+      uses: actions/setup-node@v2
       with:
-        username: 'xqy2006'
-        reponame: 'xqy2006.github.io'
-        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+        node-version: 14.x
+    - name: Auto release
+      run: |
+        npm install
+        npm build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: ./build/
+    - uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        branch: gh-pages
+        folder: ./build/
