@@ -12,16 +12,16 @@
                 </a>
             </div>
             <div class="Header-item">
-                <a href="music_generation" class="Header-link">音乐生成</a>
+                <a href="music_generation" target="_blank" class="Header-link">音乐生成</a>
             </div>
             <div class="Header-item">
-                <a href="xqy-markdown" class="Header-link">Markdown编辑器</a>
+                <a href="xqy-markdown" target="_blank" class="Header-link">Markdown编辑器</a>
             </div>
             <div class="Header-item">
-                <a href="identicon" class="Header-link">GitHub头像生成器</a>
+                <a href="identicon" target="_blank" class="Header-link">GitHub头像生成器</a>
             </div>
             <div class="Header-item">
-                <a href="draw" class="Header-link">Excalidraw</a>
+                <a href="draw" target="_blank" class="Header-link">Excalidraw</a>
             </div>
         </div>
         <div class="Layout" :style="{'margin-top': '30px','margin-inline-start': isMobileDevice(),'margin-inline-end': isMobileDevice(),}">
