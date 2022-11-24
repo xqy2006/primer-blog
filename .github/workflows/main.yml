@@ -17,8 +17,8 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: build
-        path: ./build/
+        path: ./dist/
     - uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         branch: gh-pages
-        folder: ./build/
+        folder: ./dist/
