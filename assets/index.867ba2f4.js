@@ -50,7 +50,7 @@
 
   \u4E3B\u8981\u4EE3\u7801\u5C06\u653E\u5728\u8FD9\u91CC\uFF0C\u65B9\u4FBF\u4E0A\u4E0D\u53BBGitHub\u7684\u670B\u53CB\u89C2\u770B\uFF1A
 
-  \`\`\`html
+\`\`\`html
 <template>
 <div style="height: 100%;width: 100%;">
     <div data-color-mode="light" data-light-theme="light" class="p-0">
@@ -254,7 +254,7 @@ export default {
 }
 <\/script>
 
-  \`\`\`
+\`\`\`
 
   
 
