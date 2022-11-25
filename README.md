@@ -1,8 +1,4 @@
-# 欢迎来到xqy2006的Blog
-> 一个仿GitHub风格的博客
-
-代码已开源：[https://github.com/xqy2006/xqy2006.github.io/](https://github.com/xqy2006/xqy2006.github.io/)
-
+# xqy2006.github.io
 ### 技术栈
 
 主要技术：
