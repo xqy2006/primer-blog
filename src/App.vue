@@ -184,6 +184,8 @@ export default {
             sessionStorage.setItem('hash',name);
             this.con = this.context(this.get_mdlist()).content
             this.nam = this.context(this.get_mdlist()).name
+            document.body.scrollTop = 0
+            document.documentElement.scrollTop = 0
         },
         isMobileDevice() { //判断当前设备是否为移动端
             const ua = navigator.userAgent.toLowerCase();
