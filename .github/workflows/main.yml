@@ -1,5 +1,8 @@
 name: Build Vue
 on: [push]
+concurrency: 
+  group: build
+  cancel-in-progress: true
 jobs:
   build_vue:
     runs-on: ubuntu-latest
