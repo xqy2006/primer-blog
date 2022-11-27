@@ -12,6 +12,9 @@
                 </a>
             </div>
             <div class="Header-item">
+                <a href="python" target="_blank" class="Header-link">Python模拟器</a>
+            </div>
+            <div class="Header-item">
                 <a href="music_generation" target="_blank" class="Header-link">音乐生成</a>
             </div>
             <div class="Header-item">
